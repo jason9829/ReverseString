@@ -8,4 +8,9 @@ int getStringLength(char *str)
     return 0;
   }
 
+/*  if (str != 0 || str <= "")
+  {
+    return 1;
+  }
+*/
 }

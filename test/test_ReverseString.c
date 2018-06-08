@@ -19,3 +19,9 @@ void test_StringLength_a_give_an_empty_string_expect_0(void)
 {
   TEST_ASSERT_EQUAL(0, getStringLength(""));
 }
+
+/* void test_StringLength_a_give_an_single_character_string_expect_1(void)
+{
+  TEST_ASSERT_EQUAL(1, getStringLength("f"));
+}
+*/
