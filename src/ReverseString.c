@@ -1,15 +1,19 @@
 #include "ReverseString.h"
-
+#include <ctype.h>
 
 int getStringLength(char * str)
 {
   int   i    = 0 ;
-  if(str== 0 || str[0] =='\0')
+  if(str== 0 || str[i] =='\0')
   {
     return 0;
   }
-  else
+  if(isalpha(str[i]) || isdigit(str[i]))// if use str (pointer) it store address so cant compare bcz isaplha(int)
   {
-    return 1;
+    while(str[i] !=0 && str !='\0')
+    {
+      i++;
+    }
+    return i;
   }
 }
