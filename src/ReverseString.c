@@ -25,8 +25,8 @@ char  *ReverseString(char *str)                  //return string so need * for f
  {
    char *Rev_storage;
    int   i    = 0 ;
-   int   k    =0 ;
-  // Rev_storage = (char *)malloc(sizeof(char));
+   int   k    = 0 ;
+
    if(str== 0 || str[i] =='\0')
    {
      return "NULL or empty string detected.";
@@ -35,18 +35,18 @@ char  *ReverseString(char *str)                  //return string so need * for f
    {
      while(str !=0 && str[i] !='\0')
      {
-       str++;
-       i++;
+      str++;                           // Move the pointers until '\0'(end of string)
+      i++;                             // I increment to check the conditions
      }
-     str--;
+      str--;                           // pointer decrement to move 1 step back from '\0'
     for (k==i;k>=0;k--)
     {
-      Rev_storage = &(str[k]);
+      Rev_storage = &(str[k]);          // store last character of the string to a new array
       Rev_storage++;
     }
-
-    return  Rev_storage;
-   }
+    str = Rev_storage;                  // overwrite the input string memory
+    return    str;                      // Didn't solve the overwriting issue when call function two times
+  }
 
  }
 

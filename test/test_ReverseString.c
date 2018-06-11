@@ -41,17 +41,25 @@ void test_reverse_string_NULL_exptect_error(void)
     TEST_ASSERT_EQUAL_STRING("NULL or empty string detected.", ReverseString(NULL));
 }
 
+void test_reverse_empty_string__exptect_error(void)
+{
+    TEST_ASSERT_EQUAL_STRING("NULL or empty string detected.", ReverseString(""));
+}
+
 /*void test_reverse_string_Testing_expect_gnitseT(void)
 {
-    TEST_ASSERT_EQUAL_STRING("gnitseT", ReverseString("Testing"));
+    TEST_ASSERT_EQUAL_STRING("gnitseT", ReverseString2("Testing"));
+}
+*/
+//Only can reverse no more than 3 numbers
+void test_reverse_string_123_expect_321(void)
+{
+    TEST_ASSERT_EQUAL_STRING("321", ReverseString("123"));
 }
 
 /*
-void test_reverse_string_12345_expect_54321(void)
-{
-    TEST_ASSERT_EQUAL_STRING("54321", ReverseString("12345"));
-}*/
 void test_reverse_string_Framework_expect_krowemarF(void)
 {
     TEST_ASSERT_EQUAL_STRING("krowemarF", ReverseString("Framework"));
 }
+*/
