@@ -1,5 +1,6 @@
 #include "ReverseString.h"
 #include <ctype.h>
+#include<stdio.h>
 
 int  getStringLength(char * str)
 {
@@ -17,11 +18,13 @@ int  getStringLength(char * str)
     return i;
   }
 }
-char  *ReverseString(char *str)
+char  *ReverseString(char *str)       //return string so need * for function name.
  {
    char *Rev_storage;
    int   i    = 0 ;
    int   k    = 0 ;
+   int   j    = 0 ;
+  // Rev_storage = (char *)malloc(sizeof(char));
    if(str== 0 || str[i] =='\0')
    {
      return "NULL or empty string detected.";
@@ -32,11 +35,14 @@ char  *ReverseString(char *str)
      {
        i++;
      }
-    for (k==i;k=>0;k--)
+     str--;
+    for (k==i;k>=0;k--)
     {
-      str[i]== Rev_storage;
-      i++;
+      Rev_storage = &(str[k]);
+      Rev_storage++;
+      j++;
     }
+    //free(Rev_storage);
     return  Rev_storage;
    }
 
