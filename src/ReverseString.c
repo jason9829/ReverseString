@@ -6,12 +6,12 @@
 int  getStringLength(char * str)
 {
   int   i    = 0 ;
-  if(str== 0 || str[i] =='\0')
+  if(str== 0 || str[i] =='\0')    //check for NULL and end of string (empty string)
   {
     return 0;
   }
-  //if(isalpha(str[i]) || isdigit(str[i]))// if use str (pointer) it store address so cant compare bcz isaplha(int)
-  //{
+  //if(isalpha(str[i]) || isdigit(str[i]))    // if use str (pointer) it store address so cant compare bcz isaplha(int)
+  //{                                           just to check aplphabet or digit
     while(str[i] !=0 && str !='\0')
     {
       i++;
@@ -21,48 +21,51 @@ int  getStringLength(char * str)
 }
 
 // Method 1 (move pointer to last character and store in backwards)
-//Can't reverse more than 3 numbers & can't reverse two strings
+
 char  *ReverseString(char *str)                  //return string so need * for function name.
  {
    static char *Rev_storage ;
 
    int   i    = 0 ;
    int   k    = 0 ;
+   int   j    = 0 ;
 
    if(str== 0 || str[i] =='\0')
    {
      return "NULL or empty string detected.";
    }
 
-   //if(isalpha(str[i]) || isdigit(str[i]))
+   //if(isalpha(str[i]) || isdigit(str[i])) just to check aplphabet or digit
       //if use str (pointer) it store address so cant compare bcz isaplha(int)
    //{
 	   else{
-		   int j = getStringLength(str);
+		  j = getStringLength(str);   // got the length of the string
 
 
-     while (i<j)                // skip while not complete when using numbers
+      // 12345 "\0"   j=5
+      // while loop stop when i and str at "\0"
+      // after loop move 1 step back to point at last character
+     while (i<j)
      {
-      ++str;                           // Move the pointers until '\0'(end of string)
-      i++;                             // I increment to check the conditions
+      ++str;                     // Move the pointers until '\0'(end of string)
+      i++;                       // I increment to check the conditions
      }
 
 
 		str--;                           // pointer decrement to move 1 step back from '\0'
+    i--;
 
-
-    for (k=i;k>0;k--)
-    {
-        //Rev_storage = str;              // 1) store last character of the string to a new array
-        Rev_storage = &(str[k]);         // 2) 1 and 2 also works return the whole address
-        ++Rev_storage;                  // 2 is return the whole address while 1 byte by byte.
+    for (k=i;k>0;k--)                    // move back byte by byte
+    {                                    // str = 12345 "\0"
+                                         // after loop Rev_storage point at 54321"\0"
+        Rev_storage = &(str[k]);         // then return the reversed string that are pointed
+        ++Rev_storage;                   // Point to next char array
     }
-    //str = Rev_storage;                  // overwrite the input string memory but will affect when try to
-    return    Rev_storage;
-	   }              // Didn't solve the overwriting issue when call function two times
-}
-  //}
 
+    return    Rev_storage;
+	   }
+  //}
+}
 
 
 // Method 2 (character swapping) should be working but rake aborted??

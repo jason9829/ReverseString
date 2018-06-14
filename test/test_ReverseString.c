@@ -46,20 +46,22 @@ void test_reverse_empty_string__exptect_error(void)
     TEST_ASSERT_EQUAL_STRING("NULL or empty string detected.", ReverseString(""));
 }
 
-/*
+
 void test_reverse_string_Testing_expect_gnitseT(void)
 {
     TEST_ASSERT_EQUAL_STRING("gnitseT", ReverseString("Testing"));
 }
-*/
 
 void test_reverse_string_9543_expect_3459(void)
 {
     TEST_ASSERT_EQUAL_STRING ("3459", ReverseString("9543"));
 }
+void test_reverse_string_123456789_expect_987654321(void)
+{
+    TEST_ASSERT_EQUAL_STRING ("987654321", ReverseString("123456789"));
+}
 
-/*
 void test_reverse_string_Framework_expect_krowemarF(void)
 {
     TEST_ASSERT_EQUAL_STRING("krowemarF", ReverseString("Framework"));
-}*/
+}
