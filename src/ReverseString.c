@@ -2,55 +2,48 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <malloc.h>
 
 int  getStringLength(char * str)
 {
   int   i    = 0 ;
-  if(str== 0 || str[i] =='\0')    //check for NULL and end of string (empty string)
+  if(str== 0 || *str =='\0')    //check for NULL and end of string (empty string)
   {
     return 0;
   }
-  //if(isalpha(str[i]) || isdigit(str[i]))    // if use str (pointer) it store address so cant compare bcz isaplha(int)
-  //{                                           just to check aplphabet or digit
-    while(str[i] !=0 && str !='\0')
+
+    while(str[i] !=0 && *str !='\0')      // * dereference to compare content.
     {
       i++;
     }
     return i;
-  //}
 }
 
 // Method 1 (move pointer to last character and store in backwards)
-
 char  *ReverseString(char *str)                  //return string so need * for function name.
  {
-   static char *Rev_storage ;
+   char *Rev_storage ;                            //static = staic variable will be overwrite existing memory.
+   Rev_storage= malloc(getStringLength(str)+1);
 
    int   i    = 0 ;
    int   k    = 0 ;
    int   j    = 0 ;
 
-   if(str== 0 || str[i] =='\0')
+   if(str== 0 || *str =='\0')
    {
      return "NULL or empty string detected.";
    }
-
-   //if(isalpha(str[i]) || isdigit(str[i])) just to check aplphabet or digit
-      //if use str (pointer) it store address so cant compare bcz isaplha(int)
-   //{
-	   else{
-		  j = getStringLength(str);   // got the length of the string
-
-
+	 else
+   {
+		 j = getStringLength(str);   // got the length of the string
       // 12345 "\0"   j=5
       // while loop stop when i and str at "\0"
       // after loop move 1 step back to point at last character
-     while (i<j)
-     {
+    while (i<j)
+    {
       ++str;                     // Move the pointers until '\0'(end of string)
       i++;                       // I increment to check the conditions
-     }
-
+    }
 
 		str--;                           // pointer decrement to move 1 step back from '\0'
     i--;
