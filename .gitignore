@@ -1,2 +1,18 @@
 build/*
 !build/Readme.txt
+src/ReverseString.exe
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# Add from VSCode's source control
+.vscode/launch.json
+.vscode/tasks.json
+test/support/.gitkeep
