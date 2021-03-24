@@ -1,4 +1,4 @@
-language: ruby c
+language: ruby
 
 install:
   - gem install ceedling
